@@ -29,19 +29,5 @@
     <video fullscreen id="mainVideo" controls poster="poster.png">
         <source id="videoSource" src="jumpscare.mp4" type="video/mp4">
     </video>
-
-    <script>
-        const video = document.getElementById('mainVideo');
-        let scale = 1;
-
-        setInterval(() => {
-            scale += 1.1; 
-            video.style.transform = `scale(${scale})`;
-            if(scale >= 10){
-                video.style.transform = `scale(${1})`;
-            }               
-        }, 1000);
-
-    </script>
 </body>
 </html>
