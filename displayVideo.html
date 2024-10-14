@@ -4,19 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCARRIATOR2024 - Display Video</title>
-</head>
-<body>
-    <video fullscreen id="mainVideo" autoplay preload="auto">
-        <source id="videoSource" src="jumpscare.mp4" type="video/mp4">
-    </video>
     <style>
-        video{
-            min-width: 100%;
-            min-height: 100%;
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
+        video {
+            min-width: 95%;
+            min-height: 75%;
+            transition: transform 1s ease-in-out; 
+        }
     </style>
+</head>
+<body>
+    <video fullscreen id="mainVideo" autoplay="false" preload="auto" muted="false">
+        <source id="videoSource" src="jumpscare.mp4" type="video/mp4">
+    </video>
 
+    <script>
+        const video = document.getElementById('mainVideo');
+        let scale = 1;
 
+        setInterval(() => {
+            scale += 1.1; 
+            video.style.transform = `scale(${scale})`;
+            if(scale >= 10){
+                video.style.transform = `scale(${1})`;
+            }               
+        }, 1000);
+
+    </script>
 </body>
 </html>
